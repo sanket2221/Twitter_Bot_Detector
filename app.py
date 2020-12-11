@@ -276,9 +276,9 @@ def get_plots(searchQuery, data, result, hashtags, mention):
 @st.cache(allow_output_mutation=True,suppress_st_warning=True,show_spinner=False)
 def load_model():
     import pickle
-    model_path = open('bot_scoreV1.3.pkl', 'rb')
+    model_path = open('bot_score.pkl', 'rb')
     model = pickle.load(model_path)
-    scaler = pickle.load(open('scalerV1.3.pkl', 'rb'))
+    scaler = pickle.load(open('scaler.pkl', 'rb'))
     return  model,scaler
 
 def get_prediction(searchQuery):
