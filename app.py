@@ -11,7 +11,7 @@ from wordcloud import WordCloud, STOPWORDS
 from PIL import Image
 #import credentials
 import streamlit as st
-from decouple import config
+
 import os
 
 
