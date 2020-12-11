@@ -12,7 +12,7 @@ from PIL import Image
 #import credentials
 import streamlit as st
 from decouple import config
-
+import os
 
 
 @st.cache(allow_output_mutation=True,suppress_st_warning=True,show_spinner=False)
@@ -304,10 +304,10 @@ def get_prediction(searchQuery):
 
 
 if __name__ == '__main__':
-    consumer_key = config('CONSUMER_KEY') 
-    consumer_secret = config('CONSUMER_SECRET') 
-    access_key = config('ACCESS_KEY')
-    access_secret =   config('ACCESS_SECRET')
+    consumer_key = str(os.getenv('CONSUMER_KEY'))
+    consumer_secret = str(os.getenv('CONSUMER_SECRET'))
+    access_key = str(os.getenv('ACCESS_KEY'))
+    access_secret =   str(os.getenv('ACCESS_SECRET'))
 
     auth = OAuthHandler(consumer_key, consumer_secret)
     auth.set_access_token(access_key, access_secret)
