@@ -9,8 +9,10 @@ from datetime import datetime, date, time, timedelta
 from collections import Counter
 from wordcloud import WordCloud, STOPWORDS
 from PIL import Image
-import credentials
+#import credentials
 import streamlit as st
+from decouple import config
+
 
 
 @st.cache(allow_output_mutation=True,suppress_st_warning=True,show_spinner=False)
@@ -302,10 +304,10 @@ def get_prediction(searchQuery):
 
 
 if __name__ == '__main__':
-    consumer_key = credentials.consumer_key
-    consumer_secret = credentials.consumer_secret
-    access_key = credentials.access_key
-    access_secret = credentials.access_secret
+    consumer_key = config('CONSUMER_KEY') 
+    consumer_secret = config('CONSUMER_SECRET') 
+    access_key = config('ACCESS_KEY')
+    access_secret =   config('ACCESS_SECRET')
 
     auth = OAuthHandler(consumer_key, consumer_secret)
     auth.set_access_token(access_key, access_secret)
